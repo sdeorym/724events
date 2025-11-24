@@ -4,10 +4,9 @@ import Select from "../../components/Select";
 import { useData } from "../../contexts/DataContext";
 import Modal from "../Modal";
 import ModalEvent from "../ModalEvent";
-
 import "./style.css";
 
-const PER_PAGE = 25;
+const PER_PAGE = 18;
 
 const EventList = () => {
   const { data, error } = useData();
@@ -17,10 +16,11 @@ const EventList = () => {
     (!type
       ? data?.events
       : data?.events) || []
-  ).filter((event, index) => {
+  ).filter((element, index) => {
     if (
+      (((type == null) || (element.type === type)) &&
       (currentPage - 1) * PER_PAGE <= index &&
-      PER_PAGE * currentPage > index
+      PER_PAGE * currentPage > index)
     ) {
       return true;
     }
