@@ -12,7 +12,7 @@ const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const regex = /[^0-9 \-]+/;
+
   const filteredEvents = (
     (!type
       ? data?.events
@@ -53,9 +53,8 @@ const EventList = () => {
                     onClick={() => setIsOpened(true)}
                     imageSrc={event.cover}
                     title={event.title}
-                    date={new Date(event.date)}
                     label={event.type}
-                    period={(event.periode).match(regex)[0]}
+                    date={new Date(event.date)}
                   />
                 )}
               </Modal>

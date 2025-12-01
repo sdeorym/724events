@@ -1,13 +1,12 @@
 import PropTypes from "prop-types";
-// import { getMonth } from "../../helpers/Date";
+import { getMonth } from "../../helpers/Date";
 
 import "./style.scss";
 
 const EventCard = ({
   imageSrc,
   imageAlt,
-  // date = new Date(),
-  period,
+  date = new Date(),
   title,
   label,
   small = false,
@@ -24,7 +23,7 @@ const EventCard = ({
       </div>
       <div className="EventCard__descriptionContainer">
         <div className="EventCard__title">{title}</div>
-        <div className="EventCard__month">{period}</div>
+        <div className="EventCard__month">{getMonth(date)}</div>
       </div>
     </div>
   );
