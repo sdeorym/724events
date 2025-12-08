@@ -4,22 +4,22 @@ import Select from "../../components/Select";
 import { useData } from "../../contexts/DataContext";
 import Modal from "../Modal";
 import ModalEvent from "../ModalEvent";
+
 import "./style.css";
 
-const PER_PAGE = 18;
+const PER_PAGE = 25;
 
 const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-
   const filteredEvents = (
     (!type
       ? data?.events
       : data?.events) || []
-  ).filter((element, index) => {
+  ).filter((event, index) => {
     if (
-      (((type == null) || (element.type === type)) &&
+      (((type == null) || (event.type === type)) &&
       (currentPage - 1) * PER_PAGE <= index &&
       PER_PAGE * currentPage > index)
     ) {
@@ -53,8 +53,8 @@ const EventList = () => {
                     onClick={() => setIsOpened(true)}
                     imageSrc={event.cover}
                     title={event.title}
-                    label={event.type}
                     date={new Date(event.date)}
+                    label={event.type}
                   />
                 )}
               </Modal>
