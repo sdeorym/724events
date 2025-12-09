@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
+// import { getMonth } from "../../helpers/Date";
 
 const DataContext = createContext({});
 
@@ -19,6 +20,7 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  // const [last, setLast] = useState(null);
   const getData = useCallback(async () => {
     try {
       setData(await api.loadData());
@@ -26,6 +28,7 @@ export const DataProvider = ({ children }) => {
       setError(err);
     }
   }, []);
+
   useEffect(() => {
     if (data) return;
     getData();
