@@ -13,7 +13,6 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  // const obj = useData();
   const { data } = useData();
 
   const dataSorted = data?.events.toSorted((a, b) => (new Date(a.date)).getMonth() - (new Date(b.date)).getMonth());
