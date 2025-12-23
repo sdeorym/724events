@@ -12,12 +12,17 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
+export function getLast(datum) {
+  const dataSorted = datum?.events.toSorted((a, b) => (new Date(a.date)).getMonth() - (new Date(b.date)).getMonth());
+  const lastItem = dataSorted ? dataSorted[dataSorted.length-1] : null;
+  return lastItem;
+}
+
 const Page = () => {
   const { data } = useData();
 
-  const dataSorted = data?.events.toSorted((a, b) => (new Date(a.date)).getMonth() - (new Date(b.date)).getMonth());
-  const last = dataSorted ? dataSorted[dataSorted.length-1] : null;
-  
+  const last = getLast(data); 
+
   return <>
     <header>
       <Menu />

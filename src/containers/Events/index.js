@@ -19,7 +19,7 @@ const EventList = () => {
       : data?.events) || []
   ).filter((event, index) => {
     if (
-      (((type == null) || (event.type === type)) &&
+      (((type == null) || (event.type === type)) && // Despliegue de los elementos elegidos.
       (currentPage - 1) * PER_PAGE <= index &&
       PER_PAGE * currentPage > index)
     ) {
