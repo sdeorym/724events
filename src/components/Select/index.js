@@ -16,7 +16,7 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange();
+    onChange(newValue); // This is the value to be sent back to Events in type.
     setValue(newValue);
     setCollapsed(newValue);
   };

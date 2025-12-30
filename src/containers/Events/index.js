@@ -7,7 +7,7 @@ import ModalEvent from "../ModalEvent";
 
 import "./style.css";
 
-const PER_PAGE = 25;
+const PER_PAGE = 9;
 
 const EventList = () => {
   const { data, error } = useData();
@@ -19,8 +19,9 @@ const EventList = () => {
       : data?.events) || []
   ).filter((event, index) => {
     if (
+      (((type == null) || (event.type === type)) && // It filters the events corresponding the chosen types.
       (currentPage - 1) * PER_PAGE <= index &&
-      PER_PAGE * currentPage > index
+      PER_PAGE * currentPage > index)
     ) {
       return true;
     }

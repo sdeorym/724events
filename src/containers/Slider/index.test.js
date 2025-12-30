@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Slider from "./index";
 import { api, DataProvider } from "../../contexts/DataContext";
+import { scryRenderedComponentsWithType } from "react-dom/test-utils";
+import "@testing-library/jest-dom";
 
 const data = {
   focus: [
