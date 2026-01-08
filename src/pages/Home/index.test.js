@@ -49,7 +49,6 @@ describe("When Form is created", () => {
   });
 });
 
-
 describe("When a page is created",  () => {
   it("a list of events is displayed", () => {
     const testedElement = render(<EventList />);
@@ -80,6 +79,5 @@ describe("When a page is created",  () => {
       />)
       let tinyCardTest = lastEventTest.getByTestId("card-image-testid");
       expect (tinyCardTest.src).toBe("http://localhost/images/product-school-nOvIa_x_tfo-unsplash.png");
-    // to implement
   })
 });
