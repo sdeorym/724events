@@ -9,15 +9,21 @@ const Menu = () => (
     <Logo />
     <ul>
       <li>
-        <a href="#nos-services">Nos services</a>
+        <Button title="services" onClick={() => (window.document.location.hash = "#nos-services")}>
+          Nos services
+        </Button>        
       </li>
       <li>
-        <a href="#nos-realisations">Nos réalisations</a>
+        <Button title="realisations" onClick={() => (window.document.location.hash = "#nos-realisations")}>
+          Nos réalisations
+        </Button>
       </li>
       <li>
-        <a href="#notre-equipe">Notre équipe</a>
+        <Button title="equipe" onClick={() => (window.document.location.hash = "#notre-equipe")}>
+          Notre équipe
+        </Button>
       </li>
-    </ul>
+    </ul>    
     <Button title="contact" onClick={() => (window.document.location.hash = "#contact")}>
       Contact
     </Button>
